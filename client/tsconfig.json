@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+      "outDir": "./dist",
+      "allowJs": true,
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "isolatedModules": true,
+      "jsx": "react",
+      "lib": ["dom", "es5", "es6"],
+      "baseUrl": ".",
+    //   "paths": {
+    //     "@app/*": ["src/app/*"],
+    //     "@styles/*": ["src/public/common/*"],
+    //     "@localTypes/*": ["src/app/types/*"],
+    //     "@enums/*": ["src/app/enums/*"],
+    //     "@redux/*": ["src/app/redux/*"],
+    //     "@components/*": ["src/app/components/*"],
+    //     "@services/*": ["src/app/services/*"],
+    //     "@helpers/*": ["src/app/helpers/*"],
+    //     "@routes/*": ["src/app/routes/*"],
+    //     "@images/*": ["src/public/assets/images/*"]
+    //   },
+      "sourceMap": true,
+      "moduleResolution": "node",
+      "strict": true,
+      "target": "es6",
+      "noImplicitAny": true,
+      "resolveJsonModule": true,
+    },
+    "include": ["src/**/*"],
+    "exclude": ["dist", "node_modules", "webpack.config.js"]
+  }
