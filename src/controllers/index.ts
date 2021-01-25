@@ -1,0 +1,1 @@
+export { default as VehicleController } from './vehicle-controller';

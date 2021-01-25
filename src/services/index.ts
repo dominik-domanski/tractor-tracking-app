@@ -1,0 +1,1 @@
+export { default as VehicleService } from './vehicle-service';
