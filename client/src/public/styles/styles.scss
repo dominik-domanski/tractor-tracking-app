@@ -1,3 +1,27 @@
+@import './mixins.scss';
+
 .topbar {
-  font-family: barlow-medium, barlow, sans-serif;
+  @include flex();
+  padding: 20px 30px;
+}
+
+.topbar-dropdown {
+  width: 50px;
+  height: 50px;
+  background-color: lightcoral;
+}
+
+.topbar-title {
+  flex: 1;
+  text-align: center;
+  font-family: 'Barlow', sans-serif;
+  font-size: 46px;
+  color: #F59D2F;
+}
+
+.topbar-logo {
+  background: url('../assets/images/big_logo.png') center no-repeat;
+  height: 100px;
+  width: 200px;
+  margin-left: auto;
 }

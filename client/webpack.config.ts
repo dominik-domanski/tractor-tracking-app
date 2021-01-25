@@ -1,7 +1,12 @@
 import path from "path";
-import webpack from "webpack";
 import HtmlWebPackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import webpack, { Configuration as WebpackConfiguration } from "webpack";
+import { Configuration as WebpackDevServerConfiguration } from "webpack-dev-server";
+
+interface Configuration extends WebpackConfiguration {
+  devServer?: WebpackDevServerConfiguration;
+}
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: "./src/index.html",
@@ -14,7 +19,7 @@ const cssPlugin = new MiniCssExtractPlugin({
   chunkFilename: "[id].css",
 });
 
-const config: webpack.Configuration = {
+const config: Configuration = {
   mode: "development",
   entry: "./src/index.tsx",
   output: {
@@ -66,6 +71,12 @@ const config: webpack.Configuration = {
             },
           },
         ],
+      },
+      {
+        test: /\.(jpg|png)$/,
+        use: {
+          loader: 'url-loader',
+        },
       },
     ],
   },
