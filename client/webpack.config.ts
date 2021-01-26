@@ -1,7 +1,13 @@
 import path from "path";
+import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import HtmlWebPackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import webpack, { Configuration as WebpackConfiguration } from "webpack";
+import TerserPlugin from "terser-webpack-plugin";
+import OptimizeCSSAssetsPlugin from "optimize-css-assets-webpack-plugin";
+import webpack, {
+  Configuration as WebpackConfiguration,
+  ProgressPlugin,
+} from "webpack";
 import { Configuration as WebpackDevServerConfiguration } from "webpack-dev-server";
 
 interface Configuration extends WebpackConfiguration {
@@ -19,12 +25,24 @@ const cssPlugin = new MiniCssExtractPlugin({
   chunkFilename: "[id].css",
 });
 
+const cleanWebPackPlugin = new CleanWebpackPlugin();
+
 const config: Configuration = {
   mode: "development",
   entry: "./src/index.tsx",
   output: {
-    filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "./dist"),
+    publicPath: "/",
+    filename: `[name].bundle.js`,
+    chunkFilename: "[name].[hash].js",
+  },
+  optimization: {
+    // nodeEnv: environment,
+    mergeDuplicateChunks: true,
+    removeEmptyChunks: true,
+    removeAvailableModules: true,
+    namedModules: true,
+    minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
   },
   devServer: {
     compress: true,
@@ -75,12 +93,12 @@ const config: Configuration = {
       {
         test: /\.(jpg|png)$/,
         use: {
-          loader: 'url-loader',
+          loader: "url-loader",
         },
       },
     ],
   },
-  plugins: [htmlPlugin, cssPlugin],
+  plugins: [cleanWebPackPlugin, htmlPlugin, cssPlugin],
 };
 
 export default config;

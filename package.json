@@ -8,8 +8,10 @@
   "license": "MIT",
   "scripts": {
     "serve": "ts-node-dev --respawn --ignore-watch node_modules src/cli/serve.ts",
-    "client": "cd ./client && yarn watch",
-    "dev": "concurrently \"yarn serve\" \"yarn client\""
+    "watch-client": "cd ./client && yarn watch",
+    "start-client": "cd ./client && yarn install && yarn start-prod",
+    "start-dev": "concurrently \"yarn serve\" \"yarn watch-client\"",
+    "start-prod": "yarn install && concurrently \"yarn serve\" \"yarn start-client\""
   },
   "dependencies": {
     "cors": "^2.8.5",
