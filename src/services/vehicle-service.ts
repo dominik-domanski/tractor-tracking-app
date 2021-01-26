@@ -1,4 +1,3 @@
-import { getRandomLocation } from "../data/vehicle-data";
 import { IVehicleService } from "../interfaces";
 import { EStatusType, EVehicleType, IVehicle } from "../types/vehicle";
 
@@ -46,7 +45,7 @@ export default class VehicleService implements IVehicleService {
   async getVehicles(): Promise<IVehicle[]> {
     return new Promise((resolve, reject) => {
       if (!mockError) {
-        resolve(getRandomLocation());
+        resolve(this.getRandomLocation());
       } else {
         const reason = new Error("Failed to fetch vehicles");
         reject(reason);
