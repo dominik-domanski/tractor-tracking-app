@@ -33,6 +33,12 @@ body {
   margin-left: auto;
 }
 
+@media (max-width: 768px) {
+  .topbar-logo {
+    display: none;
+  }
+}
+
 .leaflet-container {
   width: 100%;
   height: calc(100vh - 205px);
