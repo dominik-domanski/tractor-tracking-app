@@ -7,8 +7,8 @@ export const DUMMY_VEHICLE = {
   updatedAt: "2020-03-11T18:33:53.119Z",
   status: EStatusType.OnMission,
   location: {
-    latitude: 37.4224764,
-    longitude: -122.0842499,
+    latitude: -21.75553,
+    longitude: -46.56020,
     updatedAt: "2019-09-15T20:14:02.877Z",
   },
 };

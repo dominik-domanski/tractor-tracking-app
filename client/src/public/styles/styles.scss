@@ -1,8 +1,15 @@
-@import './mixins.scss';
+@import "./mixins.scss";
+@import "./variables.scss";
+
+body {
+  margin: 0;
+}
 
 .topbar {
   @include flex();
   padding: 20px 30px;
+  border-bottom: 5px solid darkblue;
+  margin-bottom: 20px;
 }
 
 .topbar-dropdown {
@@ -14,13 +21,13 @@
 .topbar-title {
   flex: 1;
   text-align: center;
-  font-family: 'Barlow', sans-serif;
+  font-family: "Barlow", sans-serif;
   font-size: 46px;
-  color: #F59D2F;
+  color: $bwr-orange;
 }
 
 .topbar-logo {
-  background: url('../assets/images/big_logo.png') center no-repeat;
+  background: url("../assets/images/big_logo.png") center no-repeat;
   height: 100px;
   width: 200px;
   margin-left: auto;
@@ -28,5 +35,15 @@
 
 .leaflet-container {
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 205px);
+}
+
+.leaflet-div-icon {
+  border: none;
+  background-color: transparent;
+  color: $bwr-orange;
+}
+
+.map-wrapper {
+  padding: 20px;
 }
