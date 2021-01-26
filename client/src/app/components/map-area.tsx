@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { MapContainer, TileLayer } from 'react-leaflet'
-import { useFetchLocations } from '../hooks/useFetchLocations'
 import { VehicleMarker } from './vehicle-marker'
 import { useInterval } from '../hooks/useInterval'
 import { IVehicle } from '../types/vehicle'
 import api from '../services/api-service'
 import { IGetVehicleResponse } from '../types/response-types'
+const DELAY = 1000;
 
 export const MapArea = () => {
   const [locations, setLocations] = useState<IVehicle[]>([])
@@ -16,7 +16,7 @@ export const MapArea = () => {
 
   useInterval(() => {
     fetchLocations();
-  }, 1000);
+  }, DELAY);
 
   // this could be a redux action and we could get locations with useSelector
   async function fetchLocations() {
