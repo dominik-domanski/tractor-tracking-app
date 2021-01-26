@@ -1,7 +1,7 @@
 import express, { Application } from "express";
 import { IControllerBase } from "./interfaces";
 import { VehicleController } from "./controllers";
-const ALLOWED_ORIGINS: string[] = ["http://localhost:3001"];
+const ALLOWED_ORIGINS: string[] = ["http://localhost:8080"];
 import bodyParser from "body-parser";
 import { IApplication, TApplicationOptions } from "./interfaces";
 
