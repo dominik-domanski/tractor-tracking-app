@@ -16,4 +16,4 @@ Tracktor Tracking App
      $ yarn start-prod
 
     
-
+the bundle is served at http://localhost:8080
